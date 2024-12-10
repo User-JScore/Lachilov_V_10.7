@@ -52,10 +52,10 @@ const addRepository = (rep) => {
   autocompleteList.innerHTML = '';
 };
 
-const handleInputChange = debounce(async (event) => {
+const inputChange = debounce(async (event) => {
   const query = event.target.value.trim();
   const repositories = await fetchRepositories(query);
   renderAutocomplete(repositories);
 }, 300);
 
-searchInput.addEventListener('input', handleInputChange);
+searchInput.addEventListener('input', inputChange);
